@@ -5,8 +5,10 @@ using UnityEngine;
 public class SkilUi : MonoBehaviour
 {
     public List<GameObject> skils = new List<GameObject>();
-    Vector3 mousePosition;
-    Camera camera;
+    private Vector3 mousePosition;
+    private Camera camera;
+    public Roland player;
+    public Enemy enemy;
 
     private void Start()
     {
@@ -15,7 +17,11 @@ public class SkilUi : MonoBehaviour
 
     private void Update()
     {
-        SkileCheak();
+        if(Input.GetMouseButtonDown(0))
+        {
+            SkileCheak();
+
+        }
     }
 
     private void SkileCheak()
@@ -29,7 +35,8 @@ public class SkilUi : MonoBehaviour
         else if (hit.collider.CompareTag("Skil"))
         {
             Debug.Log(hit);
+            player.coin(player.basicPower,player.coinPower,player.coinCount);
+            enemy.coin(enemy.basicPower, enemy.coinPower, enemy.coinCount);
         }
-       
     }
 }
