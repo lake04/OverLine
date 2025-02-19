@@ -34,6 +34,8 @@ public class Fight : MonoBehaviour
             Debug.Log($"{_basicPower}");
         }
         Debug.Log($"{this.basicPower}");
+        Debug.Log("-----------------------");
+
     }
-   
+
 }
