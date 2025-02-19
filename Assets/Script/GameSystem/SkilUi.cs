@@ -17,11 +17,8 @@ public class SkilUi : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            SkileCheak();
-
-        }
+       
+      SkileCheak();
     }
 
     private void SkileCheak()
@@ -31,12 +28,11 @@ public class SkilUi : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward, 15f);
         Debug.DrawRay(mousePosition, transform.forward * 10, Color.red, 0.3f);
-        if(hit.collider == null) return;
+        if (hit.collider == null) return;
         else if (hit.collider.CompareTag("Skil"))
         {
             Debug.Log(hit);
-            player.coin(player.basicPower,player.coinPower,player.coinCount);
-            enemy.coin(enemy.basicPower, enemy.coinPower, enemy.coinCount);
         }
     }
+
 }

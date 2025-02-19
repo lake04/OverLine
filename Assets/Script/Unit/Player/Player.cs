@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamaManger : MonoBehaviour
+public class Player : Unit
 {
     void Start()
     {
@@ -13,6 +13,5 @@ public class GamaManger : MonoBehaviour
     {
         
     }
-
-    
+   
 }
