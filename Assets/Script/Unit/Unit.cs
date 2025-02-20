@@ -8,13 +8,14 @@ public class Unit : MonoBehaviour
     public int currentHp;
     public int minSpeed;
     public int maxSpeed;
-    public Skil[] skils;
+    public int sanity;
+    public  List<Skil>  skils;
 
-    void Start()
+   
+    private void Awake()
     {
-        currentHp = maxHp;
+        this.currentHp = this.maxHp;
     }
-
     void Update()
     {
         
@@ -22,6 +23,6 @@ public class Unit : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHp -= damage;
+        this.currentHp -= damage;
     }
 }

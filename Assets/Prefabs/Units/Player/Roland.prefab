@@ -102,6 +102,7 @@ MonoBehaviour:
   currentHp: 0
   minSpeed: 3
   maxSpeed: 7
+  sanity: 50
   skils: []
 --- !u!1 &7731832184525411667
 GameObject:
