@@ -29,7 +29,6 @@ public class ButtleSystem : MonoBehaviour
     {
         state = BattleState.START;
         SetUpBattle();
-        
     }
 
     private void Update()

@@ -102,8 +102,10 @@ MonoBehaviour:
   currentHp: 0
   minSpeed: 3
   maxSpeed: 7
-  sanity: 50
   skils: []
+  manger: {fileID: 0}
+  skill: {fileID: 2344999143893832230, guid: 2bb16ede7b167cd45bfba4e1432e007e, type: 3}
+  skillList: []
 --- !u!1 &7731832184525411667
 GameObject:
   m_ObjectHideFlags: 0

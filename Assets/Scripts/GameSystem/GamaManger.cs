@@ -11,9 +11,6 @@ public class GamaManger : MonoBehaviour
     public int resources1;
     public int resources2;
     public int resources3;
-    public int resources4;
-    public int resources5;
-
 
     void Start()
     {
@@ -24,5 +21,4 @@ public class GamaManger : MonoBehaviour
     {
         
     }
-    
 }
