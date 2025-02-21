@@ -38,9 +38,8 @@ public class ButtleSystem : MonoBehaviour
         {
             for(int i = 0; i < playerUnit.skils.Count; i++)
             {
-                clash(playerUnit.skils[i], enemyUnit.skils[i]);
+
             }
-            
         }
     }
 
@@ -72,44 +71,12 @@ public class ButtleSystem : MonoBehaviour
     #region ÇÕ
     public void clash(Skil _pSkil, Skil _eSkil)
     {
-        playerUnit.skils.Clear();
-        while(_eSkil.coinCount>=1 && _pSkil.coinCount>=1)
-        {
-            count++;
-            Debug.Log($"count:{count}");
-            Debug.Log($"pSkil.basicPower:{_pSkil.basicPower}, pSkil.coinPower:{_pSkil.coinPower}, pSkil.coinCount:{_pSkil.coinCount}");
-            Debug.Log($"_eSkil.basicPower:{_eSkil.basicPower}, _eSkil.coinPower:{_eSkil.coinPower}, _eSkil.coinCount:{_eSkil.coinCount}");
-            _pSkil.coin(_pSkil.basicPower, _pSkil.coinPower, _pSkil.coinCount, playerUnit.sanity);
-            _eSkil.coin(_eSkil.basicPower, _eSkil.coinPower, _eSkil.coinCount, enemyUnit.sanity);
-            Debug.Log($"{_pSkil.basicPower} {_eSkil.basicPower}");
-            if (_pSkil.power > _eSkil.power)
-            {
-                if (_eSkil.coinCount > 1) _eSkil.coinCount--;
-                else
-                {
-                    playerUnit.sanity += 5;
-                    enemyUnit.sanity -= 5;
-                    Debug.Log("ÇÃ·¹ÀÌ¾î ½Â");
-                    enemyUnit.currentHp -= _pSkil.coinPower;
-                    Debug.Log($"enemyHp : {enemyUnit.currentHp}");
-                    break;
-                }
-            }
-            else if (_pSkil.power < _eSkil.power)
-            {
-                if (_pSkil.coinCount > 1) _pSkil.coinCount--;
-                else
-                {
-                    playerUnit.sanity -= 5;
-                    enemyUnit.sanity += 5;
-                    Debug.Log("Àû ½Â");
-                    playerUnit.currentHp -= _eSkil.coinPower;
-                    Debug.Log($"playerHp : {playerUnit.currentHp}");
-                    break;
-                }
-            }
-        }
+       
     }
     #endregion
 
+    public void SelectSkil()
+    {
+
+    }
 }

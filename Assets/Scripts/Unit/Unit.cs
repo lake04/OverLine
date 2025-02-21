@@ -8,7 +8,6 @@ public class Unit : MonoBehaviour
     public int currentHp;
     public int minSpeed;
     public int maxSpeed;
-    public int sanity;
     public  List<Skil>  skils;
 
    
@@ -25,4 +24,5 @@ public class Unit : MonoBehaviour
     {
         this.currentHp -= damage;
     }
+   
 }
