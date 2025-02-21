@@ -19,7 +19,7 @@ public class Skill
 
     public void UseSkill(Player player)
     {
-        player.AddResources(resourceType, resourceCount);
+
     }
 }
 
@@ -49,6 +49,7 @@ public class JsonLoader : MonoBehaviour
         if (skillData != null)
         {
             Debug.Log("¼º°ø");
+            player.AddSkills(skillData);
         }
         else
         {

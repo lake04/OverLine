@@ -14,8 +14,6 @@ public class Player : Unit
     {
         Skillreset();
         skillList.AddRange(skillData.skills);
-        GameObject _skill = Instantiate(skill);
-        _skill.GetComponent<Skill>();
     }
 
     void Start()
