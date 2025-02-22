@@ -7,6 +7,8 @@ public class Stage1 : MonoBehaviour
 {
     public void stage1()
     {
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("SampleScene");
+        //VVV ui 테스트용 VVV
+        SceneManager.LoadScene("Test");
     }
 }
