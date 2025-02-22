@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 5587070025296045139}
   - component: {fileID: 5467830752565465880}
   - component: {fileID: 361814296927216288}
-  - component: {fileID: 7295449531322432734}
+  - component: {fileID: -8492589857482421737}
   m_Layer: 0
   m_Name: Skile3
   m_TagString: Skil
@@ -163,7 +163,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7295449531322432734
+--- !u!114 &-8492589857482421737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,12 +172,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4092180115763529443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4553a6bd0d4d4ab47943dafa6ab02eba, type: 3}
+  m_Script: {fileID: 11500000, guid: 5dd9ec9e684f029458d32c3f2912b276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicPower: 6
-  coinPower: 3
-  coinCount: 2
-  power: 3
-  resistances: 0
-  origintransform: {fileID: 0}
+  skill: {fileID: 11400000, guid: 2f92ac1514afe814a953582c8c39e34f, type: 2}
+  player: {fileID: -2874603312992909047, guid: af5046bdfa8c8e44993f32ea1aee6850, type: 3}

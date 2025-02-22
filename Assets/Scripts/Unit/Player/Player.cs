@@ -5,34 +5,29 @@ using UnityEngine;
 public class Player : Unit
 {
     public GamaManger manger;
-    public GameObject skill;
-
-    public List<Skill> skillList = new List<Skill>();
     
+    public List<SkillComponent> skillList;
 
-    public void AddSkills(skillInfoData skillData)
+    private void Start()
     {
-        Skillreset();
-        skillList.AddRange(skillData.skills);
-        GameObject _skill = Instantiate(skill);
-        _skill.GetComponent<Skill>();
+        skillList = new List<SkillComponent>();
     }
-
-    void Start()
+    public void AddSkills(SkillComponent skillData)
     {
-      
+        skillList.Add(skillData);
     }
-
-    void Update()
-    {
-        
-    }
-
+   
     public void AddResources(string resourceType, int amount)
     {
       
     }
-    public void Skillreset()
+    public void Skillreset(int num)
+    {
+        skillList.RemoveAt(num);
+        Debug.Log("Áö¿öÁü");
+    }
+
+    private void OnApplicationQuit()
     {
         skillList.Clear();
     }

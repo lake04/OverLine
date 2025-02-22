@@ -23,7 +23,7 @@ public class SkilUi : MonoBehaviour
         {
             player = FindObjectOfType<Roland>();
             enemy = FindObjectsOfType<Enemy>();
-            SkilCheak();
+            //SkilCheak();
         }
     }
 
@@ -37,12 +37,11 @@ public class SkilUi : MonoBehaviour
 
         if (hit.collider == null) return;
 
-        Skil target = hit.collider.GetComponent<Skil>();
+        SkillComponent target = hit.collider.GetComponent<SkillComponent>();
         if (target != null)
         {
             Debug.Log("Skil√ﬂ∞°");
-            player.skils.Add(target); 
+            player.skillList.Add(target); 
         }
     }
-
 }

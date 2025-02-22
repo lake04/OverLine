@@ -13,14 +13,12 @@ public class ButtleSystem : MonoBehaviour
     public Transform[] playerTransforms;
     public Transform[] enemyTransformss;
 
-    Unit playerUnit;
+    Player playerUnit;
     Unit enemyUnit;
 
     [SerializeField]
     private GameObject unitUiPrefab;
-    [SerializeField]
-    private Transform canvasTransform;
-
+   
     public BattleState state;
     #endregion
 
@@ -35,10 +33,12 @@ public class ButtleSystem : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P))
         {
-            for(int i = 0; i < playerUnit.skils.Count; i++)
+            Debug.Log("턴 시작");
+            for (int i = 0; i < playerUnit.skillList.Count; i++)
             {
-
+                clash(playerUnit, enemyUnit,i);
             }
+            playerUnit.skillList.Clear();
         }
     }
 
@@ -47,35 +47,21 @@ public class ButtleSystem : MonoBehaviour
         for (int i = 0; i < playerPrefabs.Length; i++)
         {
             GameObject _player = Instantiate(playerPrefabs[i], playerTransforms[i]);
-            playerUnit = _player.GetComponent<Unit>();
-            //SpawnUnitHpSlider(_player);
+            playerUnit = _player.GetComponent<Player>();
         }
         for (int j = 0; j < enemyPrefabs.Length; j++)
         {
             GameObject _enemy = Instantiate(enemyPrefabs[j], enemyTransformss[j]);
             enemyUnit = _enemy.GetComponent<Unit>();
-            //SpawnUnitHpSlider(_enemy);
         }
     }
 
-    private void SpawnUnitHpSlider(GameObject unit)
-    {
-        GameObject sliderclone = Instantiate(unitUiPrefab);
-        sliderclone.transform.SetParent(canvasTransform);
-        sliderclone.transform.localScale = Vector3.one;
-        sliderclone.GetComponent<FollowUnitUi>().SetUp(unit.transform);
-        sliderclone.GetComponent<UnitView>().Setup(unit.GetComponent<Unit>());
-    }
-
     #region 합
-    public void clash(Skil _pSkil, Skil _eSkil)
+    public void clash(Player _pSkil, Unit _enemyUnit,int num)
     {
-       
+        _enemyUnit.currentHp-= _pSkil.skillList[num].skill.power;
+        playerUnit.Skillreset(num);
+        Debug.Log("합");
     }
     #endregion
-
-    public void SelectSkil()
-    {
-
-    }
 }

@@ -8,9 +8,7 @@ public class Unit : MonoBehaviour
     public int currentHp;
     public int minSpeed;
     public int maxSpeed;
-    public  List<Skil>  skils;
-
-   
+    
     private void Awake()
     {
         this.currentHp = this.maxHp;
