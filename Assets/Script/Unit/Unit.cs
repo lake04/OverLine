@@ -12,7 +12,6 @@ public class Unit : MonoBehaviour
     public int sanity;
     public  List<Skill>  skills;
 
-   
     private void Awake()
     {
         this.currentHp = this.maxHp;
@@ -25,5 +24,9 @@ public class Unit : MonoBehaviour
     public void TakeDamage(int damage)
     {
         this.currentHp -= (damage-defense);
+        if (this.currentHp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

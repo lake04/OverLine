@@ -104,7 +104,8 @@ MonoBehaviour:
   maxSpeed: 5
   defense: 2
   sanity: 0
-  skills: []
+  skills:
+  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
 --- !u!1 &3984358319502151396
 GameObject:
   m_ObjectHideFlags: 0

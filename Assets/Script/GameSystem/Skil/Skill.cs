@@ -27,18 +27,33 @@ public class Skill : MonoBehaviour
     {
         originalScale = transform.localScale;
         hoverScale = new Vector3(originalScale.x*1.2f, originalScale.y*1.2f,0);
-        gamaManger = FindAnyObjectByType<GamaManger>();
+        //gamaManger = FindAnyObjectByType<GamaManger>();
     }
-
-    public void UseSkil(Player _player,Enemy _enemy)
+    private void Update()
     {
-        gamaManger.AddResistances(this);
+        
+    }
+    
+
+    public void PlayerUseSkil(Player _player,Enemy _enemy)
+    {
+        
+            gamaManger.AddResistances(this);
         gamaManger.assimilatePoint += assimilatePoint;
         gamaManger.corrosionPoint += corrosionPoint;
         gamaManger.cost-=cost;
         _player.defense += defense;
-
         _enemy.TakeDamage(power);
+    }
+
+    public void EnemyUseSkil(Player _player, Enemy _enemy)
+    {
+        gamaManger.AddResistances(this);
+        gamaManger.assimilatePoint += assimilatePoint;
+        gamaManger.corrosionPoint += corrosionPoint;
+        gamaManger.cost -= cost;
+        _enemy.defense += defense;
+        _player.TakeDamage(power);
     }
 
     private void OnMouseEnter()

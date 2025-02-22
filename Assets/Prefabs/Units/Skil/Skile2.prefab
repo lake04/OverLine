@@ -186,4 +186,4 @@ MonoBehaviour:
   resourceCount: 2
   resistances: 0
   originalScale: {x: 0, y: 0, z: 0}
-  gamaManger: {fileID: 0}
+  gamaManger: {fileID: 7880666560972673673, guid: 27da283d5552c534e958320e358fb88c, type: 3}

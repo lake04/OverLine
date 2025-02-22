@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GamaManger : MonoBehaviour
 {
-    public Skill skill;
     public int Normal;
     public int Fatal;
     public int Ineff;
@@ -14,8 +13,6 @@ public class GamaManger : MonoBehaviour
     public int assimilatePoint;
     public Slider assimilateSlider;
     public int cost;
-
-
 
     void Start()
     {
@@ -46,6 +43,7 @@ public class GamaManger : MonoBehaviour
                     Ineff += _skill.resourceCount;
                     break;
                 }
+            default: break;
         }
     }
     public void Slider(int _corrosionPoint,int _assimilatePoint)

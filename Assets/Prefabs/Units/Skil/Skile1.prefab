@@ -144,12 +144,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4553a6bd0d4d4ab47943dafa6ab02eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicPower: 6
-  coinPower: 2
-  coinCount: 1
+  skillName: 
   power: 0
+  defense: 0
+  cost: 0
+  level: 0
+  maxLevel: 0
+  corrosionPoint: 0
+  assimilatePoint: 0
+  resourceCount: 0
   resistances: 0
-  origintransform: {fileID: 0}
+  originalScale: {x: 0, y: 0, z: 0}
+  gamaManger: {fileID: 7880666560972673673, guid: 27da283d5552c534e958320e358fb88c, type: 3}
 --- !u!1 &4592007818484497783
 GameObject:
   m_ObjectHideFlags: 0
