@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Unit
 {
+    public int cost;
     void Start()
     {
         

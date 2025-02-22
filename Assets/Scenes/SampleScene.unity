@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 789292031}
   - component: {fileID: 789292030}
   - component: {fileID: 789292032}
+  - component: {fileID: 789292033}
   m_Layer: 0
   m_Name: GameManger
   m_TagString: Untagged
@@ -516,6 +517,23 @@ MonoBehaviour:
   unitUiPrefab: {fileID: 287951909611406255, guid: 8f1e03b62abcfdc4fbc93226417cedd8, type: 3}
   canvasTransform: {fileID: 507519262}
   state: 0
+  gamaManger: {fileID: 789292033}
+--- !u!114 &789292033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789292029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32653224d1e1594d94c7fe1125aa612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 0}
+  Normal: 0
+  Fatal: 0
+  Ineff: 0
 --- !u!1 &798165026
 GameObject:
   m_ObjectHideFlags: 0

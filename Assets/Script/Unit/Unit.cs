@@ -8,8 +8,9 @@ public class Unit : MonoBehaviour
     public int currentHp;
     public int minSpeed;
     public int maxSpeed;
+    public int defense;
     public int sanity;
-    public  List<Skil>  skils;
+    public  List<Skill>  skills;
 
    
     private void Awake()

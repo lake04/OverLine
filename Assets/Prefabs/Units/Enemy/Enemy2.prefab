@@ -102,10 +102,9 @@ MonoBehaviour:
   currentHp: 0
   minSpeed: 2
   maxSpeed: 5
+  defense: 2
   sanity: 0
-  skils:
-  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
-  - {fileID: 3581579932547728111, guid: 805c4587e7d6da54b82e6eb788f954a4, type: 3}
+  skills: []
 --- !u!1 &3984358319502151396
 GameObject:
   m_ObjectHideFlags: 0

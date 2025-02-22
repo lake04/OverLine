@@ -13,8 +13,8 @@ public class ButtleSystem : MonoBehaviour
     public Transform[] playerTransforms;
     public Transform[] enemyTransformss;
 
-    Unit playerUnit;
-    Unit enemyUnit;
+    Player playerUnit;
+    Enemy enemyUnit;
 
     [SerializeField]
     private GameObject unitUiPrefab;
@@ -22,6 +22,9 @@ public class ButtleSystem : MonoBehaviour
     private Transform canvasTransform;
 
     public BattleState state;
+
+    public GamaManger gamaManger;
+
     #endregion
 
     int count = 0;
@@ -36,11 +39,10 @@ public class ButtleSystem : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P))
         {
-            for(int i = 0; i < playerUnit.skils.Count; i++)
+            for(int i = 0; i < playerUnit.skills.Count; i++)
             {
-                clash(playerUnit.skils[i], enemyUnit.skils[i]);
+                PlayerAttack(playerUnit, enemyUnit,i);
             }
-            
         }
     }
 
@@ -49,66 +51,25 @@ public class ButtleSystem : MonoBehaviour
         for (int i = 0; i < playerPrefabs.Length; i++)
         {
             GameObject _player = Instantiate(playerPrefabs[i], playerTransforms[i]);
-            playerUnit = _player.GetComponent<Unit>();
-            //SpawnUnitHpSlider(_player);
+            playerUnit = _player.GetComponent<Player>();
         }
         for (int j = 0; j < enemyPrefabs.Length; j++)
         {
             GameObject _enemy = Instantiate(enemyPrefabs[j], enemyTransformss[j]);
-            enemyUnit = _enemy.GetComponent<Unit>();
-            //SpawnUnitHpSlider(_enemy);
+            enemyUnit = _enemy.GetComponent<Enemy>();
         }
-    }
-
-    private void SpawnUnitHpSlider(GameObject unit)
-    {
-        GameObject sliderclone = Instantiate(unitUiPrefab);
-        sliderclone.transform.SetParent(canvasTransform);
-        sliderclone.transform.localScale = Vector3.one;
-        sliderclone.GetComponent<FollowUnitUi>().SetUp(unit.transform);
-        sliderclone.GetComponent<UnitView>().Setup(unit.GetComponent<Unit>());
     }
 
     #region ÇÕ
-    public void clash(Skil _pSkil, Skil _eSkil)
+    public void PlayerAttack(Player _player,Enemy _enemy,int num)
     {
-        playerUnit.skils.Clear();
-        while(_eSkil.coinCount>=1 && _pSkil.coinCount>=1)
-        {
+        Debug.Log("°ø°Ý");
+       
             count++;
             Debug.Log($"count:{count}");
-            Debug.Log($"pSkil.basicPower:{_pSkil.basicPower}, pSkil.coinPower:{_pSkil.coinPower}, pSkil.coinCount:{_pSkil.coinCount}");
-            Debug.Log($"_eSkil.basicPower:{_eSkil.basicPower}, _eSkil.coinPower:{_eSkil.coinPower}, _eSkil.coinCount:{_eSkil.coinCount}");
-            _pSkil.coin(_pSkil.basicPower, _pSkil.coinPower, _pSkil.coinCount, playerUnit.sanity);
-            _eSkil.coin(_eSkil.basicPower, _eSkil.coinPower, _eSkil.coinCount, enemyUnit.sanity);
-            Debug.Log($"{_pSkil.basicPower} {_eSkil.basicPower}");
-            if (_pSkil.power > _eSkil.power)
-            {
-                if (_eSkil.coinCount > 1) _eSkil.coinCount--;
-                else
-                {
-                    playerUnit.sanity += 5;
-                    enemyUnit.sanity -= 5;
-                    Debug.Log("ÇÃ·¹ÀÌ¾î ½Â");
-                    enemyUnit.currentHp -= _pSkil.coinPower;
-                    Debug.Log($"enemyHp : {enemyUnit.currentHp}");
-                    break;
-                }
-            }
-            else if (_pSkil.power < _eSkil.power)
-            {
-                if (_pSkil.coinCount > 1) _pSkil.coinCount--;
-                else
-                {
-                    playerUnit.sanity -= 5;
-                    enemyUnit.sanity += 5;
-                    Debug.Log("Àû ½Â");
-                    playerUnit.currentHp -= _eSkil.coinPower;
-                    Debug.Log($"playerHp : {playerUnit.currentHp}");
-                    break;
-                }
-            }
-        }
+            _player.skills[num].UseSkil(_player, _enemy);
+        playerUnit.skills.Clear();
+
     }
     #endregion
 

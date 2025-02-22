@@ -175,9 +175,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4553a6bd0d4d4ab47943dafa6ab02eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicPower: 3
-  coinPower: 3
-  coinCount: 2
+  skillName: Attack
   power: 3
+  defense: 0
+  cost: 1
+  level: 1
+  maxLevel: 3
+  corrosionPoint: 1
+  assimilatePoint: 0
+  resourceCount: 2
   resistances: 0
-  origintransform: {fileID: 0}
+  originalScale: {x: 0, y: 0, z: 0}
+  gamaManger: {fileID: 0}
