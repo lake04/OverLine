@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Attack
-  power: 3
+  power: 18
   defense: 0
   cost: 1
   level: 1

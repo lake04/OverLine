@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GamaManger : MonoBehaviour
 {
@@ -9,8 +10,12 @@ public class GamaManger : MonoBehaviour
     public int Fatal;
     public int Ineff;
     public int corrosionPoint;
+    public Slider corrosionSlider;
     public int assimilatePoint;
+    public Slider assimilateSlider;
     public int cost;
+
+
 
     void Start()
     {
@@ -19,7 +24,7 @@ public class GamaManger : MonoBehaviour
 
     void Update()
     {
-        
+        Slider(corrosionPoint,assimilatePoint);
     }
 
     public void AddResistances(Skill _skill)
@@ -43,4 +48,14 @@ public class GamaManger : MonoBehaviour
                 }
         }
     }
+    public void Slider(int _corrosionPoint,int _assimilatePoint)
+    {
+        corrosionSlider.maxValue = 100;
+        corrosionSlider.value = _corrosionPoint;
+
+        assimilateSlider.maxValue = 100;
+        assimilateSlider.value = _assimilatePoint;
+    }
+
+   
 }

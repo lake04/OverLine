@@ -24,6 +24,6 @@ public class Unit : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        this.currentHp -= damage;
+        this.currentHp -= (damage-defense);
     }
 }

@@ -39,10 +39,13 @@ public class ButtleSystem : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P))
         {
-            for(int i = 0; i < playerUnit.skills.Count; i++)
+            if(playerUnit.skills.Count <=0) return;
+            for(int i = 0; i <=playerUnit.skills.Count; i++)
             {
                 PlayerAttack(playerUnit, enemyUnit,i);
+                count++;
             }
+            count = 0;
         }
     }
 
@@ -64,12 +67,9 @@ public class ButtleSystem : MonoBehaviour
     public void PlayerAttack(Player _player,Enemy _enemy,int num)
     {
         Debug.Log("АјАн");
-       
-            count++;
-            Debug.Log($"count:{count}");
-            _player.skills[num].UseSkil(_player, _enemy);
-        playerUnit.skills.Clear();
-
+        Debug.Log($"count:{count}");
+        _player.skills[num].UseSkil(_player, _enemy);
+        playerUnit.skills.RemoveAt(num);
     }
     #endregion
 

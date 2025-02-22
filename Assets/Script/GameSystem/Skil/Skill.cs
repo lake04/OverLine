@@ -35,8 +35,10 @@ public class Skill : MonoBehaviour
         gamaManger.AddResistances(this);
         gamaManger.assimilatePoint += assimilatePoint;
         gamaManger.corrosionPoint += corrosionPoint;
-        _player.defense +=defense;
         gamaManger.cost-=cost;
+        _player.defense += defense;
+
+        _enemy.TakeDamage(power);
     }
 
     private void OnMouseEnter()
