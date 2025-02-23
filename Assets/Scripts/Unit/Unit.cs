@@ -9,15 +9,11 @@ public class Unit : MonoBehaviour
     public int currentHp;
     public int minSpeed;
     public int maxSpeed;
-<<<<<<< HEAD:Assets/Scripts/Unit/Unit.cs
-    public  List<Skil>  skils;
-=======
     public int defense;
     public int currentDefense;
     public int sanity;
     public  List<Skill>  skills;
     public Slider hpSlider;
->>>>>>> Test:Assets/Script/Unit/Unit.cs
 
     private void Awake()
     {
