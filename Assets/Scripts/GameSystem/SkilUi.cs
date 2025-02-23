@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkilUi : MonoBehaviour
@@ -8,35 +9,40 @@ public class SkilUi : MonoBehaviour
     private Vector3 mousePosition;
     private Camera camera;
     public Roland player;
-    public Enemy enemy;
+    public Enemy[] enemy;
 
     private void Start()
     {
         camera = Camera.main;
+        
     }
 
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            SkileCheak();
-
+            player = FindObjectOfType<Roland>();
+            enemy = FindObjectsOfType<Enemy>();
+            SkilCheak();
         }
     }
 
-    private void SkileCheak()
+    private void SkilCheak()
     {
         mousePosition = Input.mousePosition;
         mousePosition = camera.ScreenToWorldPoint(mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward, 15f);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, 15f);
         Debug.DrawRay(mousePosition, transform.forward * 10, Color.red, 0.3f);
-        if(hit.collider == null) return;
-        else if (hit.collider.CompareTag("Skil"))
+
+        if (hit.collider == null) return;
+
+        Skil target = hit.collider.GetComponent<Skil>();
+        if (target != null)
         {
-            Debug.Log(hit);
-            player.coin(player.basicPower,player.coinPower,player.coinCount);
-            enemy.coin(enemy.basicPower, enemy.coinPower, enemy.coinCount);
+            Debug.Log("Skil√ﬂ∞°");
+            player.skils.Add(target); 
         }
     }
+
 }
