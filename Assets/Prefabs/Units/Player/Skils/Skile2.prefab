@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 5587070025296045139}
   - component: {fileID: 5467830752565465880}
   - component: {fileID: 361814296927216288}
-  - component: {fileID: 7295449531322432734}
   m_Layer: 0
   m_Name: Skile2
   m_TagString: Skil
@@ -163,27 +162,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7295449531322432734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4092180115763529443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4553a6bd0d4d4ab47943dafa6ab02eba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillName: Attack
-  power: 18
-  defense: 0
-  cost: 1
-  level: 1
-  maxLevel: 3
-  corrosionPoint: 1
-  assimilatePoint: 0
-  resourceCount: 2
-  resistances: 0
-  originalScale: {x: 0, y: 0, z: 0}
-  gamaManger: {fileID: 7880666560972673673, guid: 27da283d5552c534e958320e358fb88c, type: 3}
