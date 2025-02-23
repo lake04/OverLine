@@ -6,14 +6,11 @@ using UnityEngine.UI;
 public class DamageText : MonoBehaviour
 {
      Text Damagetext;
-    [SerializeField]
-    public Skil skil; // << 대충 최종 대미지 받을 함수임 ㅇㅇ
     public int Endinfo;
     public int Damageinfo;
     public float destroyTime = 0.7f;
     private void Start()
     {
-        skil = GetComponent<Skil>();
         Damagetext = GetComponent<Text>();
         Damagetext.text = Damageinfo.ToString();
         Invoke("DestroyText", destroyTime);
