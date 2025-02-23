@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,12 +17,14 @@ public class ButtleSystem : MonoBehaviour
     Player playerUnit;
     Enemy enemyUnit;
 
+    Enemy selectEnemy;
+    int index;
+
     public List<Enemy> enemyList;
 
     [SerializeField]
     private GameObject unitUiPrefab;
     [SerializeField]
-    private Transform canvasTransform;
 
     public BattleState state;
 
@@ -41,6 +44,10 @@ public class ButtleSystem : MonoBehaviour
     private void Update()
     {
         PlayerTrun();
+        if (Input.GetMouseButtonDown(0))
+        {
+            EnemySelect();
+        }
         EnemyTrun();
     }
 
@@ -67,7 +74,7 @@ public class ButtleSystem : MonoBehaviour
         _player.skills.RemoveAt(num);
     }
     #endregion
-    private void SkilCheak()
+    private void EnemySelect()
     {
         mousePosition = Input.mousePosition;
         mousePosition = camera.ScreenToWorldPoint(mousePosition);
@@ -80,8 +87,8 @@ public class ButtleSystem : MonoBehaviour
         Enemy target = hit.collider.GetComponent<Enemy>();
         if (target != null)
         {
-            Debug.Log("Skil추가");
-            PlayerAttack(playerUnit, target,1);
+            Debug.Log("적 추가");
+             index = enemyList.IndexOf(target);
         }
     }
     public void PlayerTrun()
@@ -94,10 +101,10 @@ public class ButtleSystem : MonoBehaviour
             {
                 for (int i = playerUnit.skills.Count - 1; i >= 0; i--)
                 {
-                    PlayerAttack(playerUnit, enemyUnit, i);
+                 PlayerAttack(playerUnit, enemyList[index], i);
                 }
-                playerUnit.defense = 0;
                 state = BattleState.ENEMYTURN;
+                selectEnemy = null;
             }
         }
     }
@@ -112,6 +119,10 @@ public class ButtleSystem : MonoBehaviour
                 enemyUnit.skills[i].EnemyUseSkil(playerUnit, enemyUnit);
             }
             state = BattleState.PLAYTURN;
+            if(playerUnit.currentDefense>0) playerUnit.currentHp -= playerUnit.currentDefense;
+            if (enemyUnit.currentDefense > 0) enemyUnit.currentHp -= enemyUnit.currentDefense;
+            playerUnit.defense = 0; 
+            enemyUnit.defense =0;
         }
     }
 }

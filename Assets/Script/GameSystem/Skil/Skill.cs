@@ -27,7 +27,8 @@ public class Skill : MonoBehaviour
     {
         originalScale = transform.localScale;
         hoverScale = new Vector3(originalScale.x*1.2f, originalScale.y*1.2f,0);
-        //gamaManger = FindAnyObjectByType<GamaManger>();
+
+        gamaManger = FindAnyObjectByType<GamaManger>();
     }
     private void Update()
     {
@@ -37,8 +38,7 @@ public class Skill : MonoBehaviour
 
     public void PlayerUseSkil(Player _player,Enemy _enemy)
     {
-        
-            gamaManger.AddResistances(this);
+        gamaManger.AddResistances(this);
         gamaManger.assimilatePoint += assimilatePoint;
         gamaManger.corrosionPoint += corrosionPoint;
         gamaManger.cost-=cost;

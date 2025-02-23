@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,13 @@ using UnityEngine.UI;
 
 public class GamaManger : MonoBehaviour
 {
-    public int Normal;
-    public int Fatal;
-    public int Ineff;
+    public int normal;
+    public Text normalText;
+    public int fatal;
+    public Text fatalText;
+    public int ineff;
+    public Text ineffText;
+
     public int corrosionPoint;
     public Slider corrosionSlider;
     public int assimilatePoint;
@@ -16,31 +21,37 @@ public class GamaManger : MonoBehaviour
 
     void Start()
     {
-        
+      
     }
 
     void Update()
     {
         Slider(corrosionPoint,assimilatePoint);
+        Text();
+    }
+    private void OnApplicationQuit()
+    {
+        Reset();
     }
 
     public void AddResistances(Skill _skill)
     {
+        Debug.Log("자원 추가");
         switch(_skill.resistances)
         {
             case resistances.Normal:
                 {
-                    Normal += _skill.resourceCount;
+                    normal += _skill.resourceCount;
                     break;
                 }
             case resistances.Fatal:
                 {
-                    Fatal += _skill.resourceCount;
+                    fatal += _skill.resourceCount;
                     break;
                 }
             case resistances.Ineff:
                 {
-                    Ineff += _skill.resourceCount;
+                    ineff += _skill.resourceCount;
                     break;
                 }
             default: break;
@@ -55,5 +66,20 @@ public class GamaManger : MonoBehaviour
         assimilateSlider.value = _assimilatePoint;
     }
 
-   
+    public void Text()
+    {
+        normalText.text = normal.ToString();
+        fatalText.text = fatal.ToString();
+        ineffText.text = ineff.ToString();
+    }
+    public void Reset()
+    {
+     normal =0;
+     fatal =0 ;
+     ineff=0;
+
+     corrosionPoint = 0;
+     assimilatePoint = 0;
+     cost = 0;
+     }
 }

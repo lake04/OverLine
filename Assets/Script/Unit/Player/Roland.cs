@@ -13,6 +13,6 @@ public class Roland : Player
 
     void Update()
     {
-        
+        HpSlider();
     }
 }

@@ -12,8 +12,6 @@ public class Enemy : Unit
 
     void Update()
     {
-        
+        HpSlider();
     }
-
-   
 }
