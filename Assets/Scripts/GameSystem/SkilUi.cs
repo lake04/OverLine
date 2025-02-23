@@ -37,11 +37,11 @@ public class SkilUi : MonoBehaviour
 
         if (hit.collider == null) return;
 
-        Skil target = hit.collider.GetComponent<Skil>();
+        Skill target = hit.collider.GetComponent<Skill>();
         if (target != null)
         {
             Debug.Log("Skil√ﬂ∞°");
-            player.skils.Add(target); 
+            player.skills.Add(target); 
         }
     }
 

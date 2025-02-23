@@ -60,7 +60,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 845554534701677435}
@@ -175,9 +175,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4553a6bd0d4d4ab47943dafa6ab02eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicPower: 6
-  coinPower: 3
-  coinCount: 2
-  power: 3
-  resistances: 0
-  origintransform: {fileID: 0}
+  skillName: Deffens
+  power: 0
+  defense: 3
+  cost: 1
+  level: 1
+  maxLevel: 3
+  corrosionPoint: 0
+  assimilatePoint: 2
+  resourceCount: 1
+  resistances: 1
+  originalScale: {x: 0, y: 0, z: 0}
+  gamaManger: {fileID: 7880666560972673673, guid: 27da283d5552c534e958320e358fb88c, type: 3}

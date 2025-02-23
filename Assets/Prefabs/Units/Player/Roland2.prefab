@@ -102,7 +102,10 @@ MonoBehaviour:
   currentHp: 0
   minSpeed: 5
   maxSpeed: 7
-  skils: []
+  defense: 0
+  currentDefense: 0
+  sanity: 0
+  skills: []
 --- !u!1 &8192789042659274229
 GameObject:
   m_ObjectHideFlags: 0
