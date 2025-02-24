@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Script/GameSystem/Fight.cs.meta
-guid: 489b1a8f1fa21cb49957ef9faf335e22
-========
-guid: 0c1fbcbc2f3f0f94cb1a2c3778ed6b49
->>>>>>>> test2:Assets/Scripts/Ui/UiManager.cs.meta
+guid: 379b969b9f1f03f4c8863abb80f21928
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

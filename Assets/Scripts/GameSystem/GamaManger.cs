@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class GamaManger : MonoBehaviour
 {
-<<<<<<< HEAD:Assets/Scripts/GameSystem/GamaManger.cs
     public int corrosion;
     public int assimilate;
     public int cost;
@@ -15,7 +14,6 @@ public class GamaManger : MonoBehaviour
     public int resources2;
     public int resources3;
 
-=======
     public int normal;
     public Text normalText;
     public int fatal;
@@ -30,7 +28,6 @@ public class GamaManger : MonoBehaviour
     public int cost;
     public Text costText;
     
->>>>>>> test2:Assets/Script/GameSystem/GamaManger.cs
     void Start()
     {
       
@@ -45,8 +42,6 @@ public class GamaManger : MonoBehaviour
     {
         Reset();
     }
-<<<<<<< HEAD:Assets/Scripts/GameSystem/GamaManger.cs
-=======
 
     public void AddResistances(Skill _skill)
     {
@@ -97,5 +92,4 @@ public class GamaManger : MonoBehaviour
      assimilatePoint = 0;
      cost = 0;
      }
->>>>>>> test2:Assets/Script/GameSystem/GamaManger.cs
 }
