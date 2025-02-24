@@ -4,31 +4,19 @@ using UnityEngine;
 
 public class SkillSlot : MonoBehaviour
 {
-    public float spacing = 5f;
-    public List<Skill> skillList;
-    public Transform[] transforms;
-    [SerializeField]
-    private int max = 5; 
-    private int count = 0;
+    public float spacing = 5f; 
 
     void Start()
     {
-        for(int i = 0; i < max; i++)
-        {
-            RandomSkill();
-        }
-    }
-    public void Update()
-    {
-      
-       
+        ArraySkill();
     }
 
-    public void RandomSkill()
+    void ArraySkill()
     {
-       Debug.Log("스킬 추가");
-       if (count >= transforms.Length) count = 0;
-       int result = Random.Range(0, skillList.Count);
-       Skill spskill = Instantiate(skillList[result], transforms[count++]);
-    } 
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            child.position = new Vector3(i * spacing, -3.5f, 0);
+        }
+    }
 }

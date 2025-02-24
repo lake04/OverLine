@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934225836014336974}
   - component: {fileID: 2013201066705592293}
-  - component: {fileID: 8651595209787976426}
+  - component: {fileID: 1053486614119476328}
   m_Layer: 0
   m_Name: Roland
   m_TagString: Player
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8651595209787976426
+--- !u!114 &1053486614119476328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2804717313691687645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7846320baf2a0438b2ca4d79ce000c, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cd1efaca28135745aa7a54d6216b74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
@@ -105,6 +105,7 @@ MonoBehaviour:
   maxSpeed: 7
   defense: 0
   currentDefense: 0
+  sanity: 50
   skills: []
   hpSlider: {fileID: 7776141684019583766}
 --- !u!1 &4098431442831558026

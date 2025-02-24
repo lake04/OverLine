@@ -439,8 +439,9 @@ MonoBehaviour:
   maxSpeed: 4
   defense: 5
   currentDefense: 0
+  sanity: 50
   skills:
-  - {fileID: 7295449531322432734, guid: c5774a4a995b4d341b43bb1c9586e6ea, type: 3}
+  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
   hpSlider: {fileID: 4250688230270483257}
 --- !u!61 &-7230008819888633145
 BoxCollider2D:

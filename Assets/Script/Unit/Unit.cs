@@ -11,6 +11,7 @@ public class Unit : MonoBehaviour
     public int maxSpeed;
     public int defense;
     public int currentDefense;
+    public int sanity;
     public  List<Skill>  skills;
     public Slider hpSlider;
 
