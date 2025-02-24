@@ -8,8 +8,9 @@ public class SkilUi : MonoBehaviour
     public List<GameObject> skils = new List<GameObject>();
     private Vector3 mousePosition;
     private Camera camera;
-    public Roland player;
+    public Player player;
     public Enemy[] enemy;
+    public GamaManger gamaManger;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class SkilUi : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            player = FindObjectOfType<Roland>();
+            player = FindObjectOfType<Player>();
             enemy = FindObjectsOfType<Enemy>();
             //SkilCheak();
         }
@@ -37,11 +38,22 @@ public class SkilUi : MonoBehaviour
 
         if (hit.collider == null) return;
 
+<<<<<<< HEAD:Assets/Scripts/GameSystem/SkilUi.cs
         SkillComponent target = hit.collider.GetComponent<SkillComponent>();
         if (target != null)
         {
             Debug.Log("Skil추가");
             player.skillList.Add(target); 
+=======
+        Skill target = hit.collider.GetComponent<Skill>();
+        if (target != null)
+        {
+            Debug.Log("Skil추가");
+            if (target.cost > gamaManger.cost) return;
+            player.skills.Add(target);
+            gamaManger.cost -= target.cost;
+            Destroy(target.gameObject);
+>>>>>>> test2:Assets/Script/GameSystem/SkilUi.cs
         }
     }
 }
