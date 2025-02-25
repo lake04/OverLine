@@ -440,7 +440,7 @@ MonoBehaviour:
   defense: 5
   currentDefense: 0
   skills:
-  - {fileID: 7295449531322432734, guid: c5774a4a995b4d341b43bb1c9586e6ea, type: 3}
+  - {fileID: 7295449531322432734, guid: 2fe12b9763ced934db354770112eb059, type: 3}
   hpSlider: {fileID: 4250688230270483257}
   animator: {fileID: 0}
 --- !u!61 &-7230008819888633145
