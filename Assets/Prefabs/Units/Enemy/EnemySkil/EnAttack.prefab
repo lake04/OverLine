@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 361814296927216288}
   - component: {fileID: 7295449531322432734}
   m_Layer: 0
-  m_Name: Attack
+  m_Name: EnAttack
   m_TagString: Skil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: Attack
-  power: 18
+  power: 2
   defense: 0
   cost: 1
   level: 1
@@ -184,6 +184,7 @@ MonoBehaviour:
   corrosionPoint: 0
   assimilatePoint: 5
   resourceCount: 3
+  isSpIndex: 0
   resistances: 1
   originalScale: {x: 0, y: 0, z: 0}
   gamaManger: {fileID: 0}

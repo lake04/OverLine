@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BattleState { START,PLAYTURN, ENEMYTURN, WON,LOSE}
+public enum BattleState { START, PLAYTURN, ENEMYTURN, WON, LOSE }
 
 public class ButtleSystem : MonoBehaviour
 {
@@ -64,7 +64,7 @@ public class ButtleSystem : MonoBehaviour
     }
 
     #region 합
-    public void PlayerAttack(Player _player,Enemy _enemy,int num)
+    public void PlayerAttack(Player _player, Enemy _enemy, int num)
     {
         Debug.Log("플레이어 공격");
         _player.skills[num].PlayerUseSkil(_player, _enemy);
@@ -85,9 +85,10 @@ public class ButtleSystem : MonoBehaviour
         if (target != null)
         {
             Debug.Log("적 추가");
-             index = enemyList.IndexOf(target);
+            index = enemyList.IndexOf(target);
         }
     }
+    #region 턴 관련
     public void PlayerTrun()
     {
         if (state != BattleState.ENEMYTURN) state = BattleState.PLAYTURN;
@@ -100,11 +101,11 @@ public class ButtleSystem : MonoBehaviour
             {
                 for (int i = playerUnit.skills.Count - 1; i >= 0; i--)
                 {
-                 PlayerAttack(playerUnit, enemyList[index], i);
+                    PlayerAttack(playerUnit, enemyList[index], i);
                 }
                 state = BattleState.ENEMYTURN;
                 selectEnemy = null;
-                skillSlot.EndTurn();
+                EndTurn();
                 gamaManger.cost++;
             }
         }
@@ -112,24 +113,48 @@ public class ButtleSystem : MonoBehaviour
 
     public void EnemyTrun()
     {
-        if(state == BattleState.ENEMYTURN)
+        if (state == BattleState.ENEMYTURN)
         {
             Debug.Log("Enemy턴");
-            for(int i = enemyList.Count -1;i>=0;i--)
+            for (int i = enemyList.Count - 1; i >= 0; i--)
             {
-                for (int j = enemyUnit.skills.Count - 1; j >= 0; j--)
+                if (enemyList[i].skills.Count != 0 && enemyList[i].skills.Count != null)
                 {
-                    enemyList[i].skills[j].EnemyUseSkil(playerUnit, enemyList[i]);
+                    Debug.Log("zz");
+                    EnemyUseSkill(i);
                 }
-                if (playerUnit.currentDefense > 0) playerUnit.currentHp -= playerUnit.currentDefense;
-                if (enemyList[i].currentDefense > 0) enemyList[i].currentHp -= enemyList[i].currentDefense;
+                else
+                {
+                    playerUnit.NoramlTakeDamage(enemyList[i].damage);
+                    Debug.Log("기본 공격");
+                }
+
+                if (playerUnit.currentShield > 0) playerUnit.currentHp -= playerUnit.currentShield;
+                if (enemyList[i].currentShield > 0) enemyList[i].currentHp -= enemyList[i].currentShield;
                 playerUnit.defense = 0;
-                playerUnit.currentDefense = 0;
+                playerUnit.currentShield = 0;
                 enemyList[i].defense = 0;
-                enemyList[i].currentDefense = 0;
+                enemyList[i].currentShield = 0;
             }
             state = BattleState.PLAYTURN;
         }
     }
-  
+
+    public void EndTurn()
+    {
+        Debug.Log("턴종료");
+        skillSlot.RandomSkill();
+        gamaManger.AssimilatePointBuff();
+        gamaManger.corrosionPointBuff();
+    }
+    #endregion
+
+    public void EnemyUseSkill(int _num)
+    {
+        Debug.Log("Enemy스킬 사용");
+        for (int j = enemyUnit.skills.Count - 1; j >= 0; j--)
+        {
+            enemyList[_num].skills[j].EnemyUseSkil(playerUnit, enemyList[_num]);
+        }
+    }
 }

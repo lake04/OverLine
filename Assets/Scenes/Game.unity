@@ -460,9 +460,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillList:
-  - {fileID: 7295449531322432734, guid: c5774a4a995b4d341b43bb1c9586e6ea, type: 3}
-  - {fileID: 3581579932547728111, guid: 805c4587e7d6da54b82e6eb788f954a4, type: 3}
-  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
+  - {fileID: 7295449531322432734, guid: 2fe12b9763ced934db354770112eb059, type: 3}
+  - {fileID: 3581579932547728111, guid: eabb971e478e70142af51593bc2ea310, type: 3}
+  - {fileID: 7295449531322432734, guid: 5ce8c0db49ae4ba43a0e711b27658654, type: 3}
   transforms:
   - {fileID: 1406191209}
   - {fileID: 118893585}
@@ -513,6 +513,7 @@ MonoBehaviour:
   assimilateSlider: {fileID: 1188050697}
   cost: 5
   costText: {fileID: 1197180539}
+  player: {fileID: 0}
 --- !u!114 &337986914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabs:
-  - {fileID: 2804717313691687645, guid: af5046bdfa8c8e44993f32ea1aee6850, type: 3}
+  - {fileID: 2804717313691687645, guid: d372e2807b4c60a4fba4fc74cc63de33, type: 3}
   enemyPrefabs:
   - {fileID: 6885072209718228437, guid: 26f827ad3879cf044b0dcfeb8f04c5f5, type: 3}
   - {fileID: 3551781056912692995, guid: 6f613589426d7b2439ee9a149d12ede9, type: 3}
@@ -541,7 +542,7 @@ MonoBehaviour:
   enemyList: []
   state: 0
   gamaManger: {fileID: 337986913}
-  skillSlot: {fileID: 0}
+  skillSlot: {fileID: 325413680}
 --- !u!114 &337986915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +731,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0

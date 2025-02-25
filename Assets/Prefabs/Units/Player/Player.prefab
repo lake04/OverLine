@@ -36,7 +36,6 @@ Transform:
   - {fileID: 7415201751231137318}
   - {fileID: 7011468069729882375}
   - {fileID: 2784472092221311789}
-  - {fileID: 2041677256673050263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2013201066705592293
@@ -103,16 +102,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7846320baf2a0438b2ca4d79ce000c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  defense: 5
   maxHp: 100
   currentHp: 0
-  minSpeed: 3
-  maxSpeed: 7
-  defense: 0
-  currentDefense: 0
+  shield: 0
+  currentShield: 0
   skills: []
   hpSlider: {fileID: 7776141684019583766}
   animator: {fileID: 5428272808504103069}
   SpawnDamageText: {fileID: 4612323860609808850, guid: c8c5084113de70b4caaf24b26bf297f6, type: 3}
+  hitEffect: {fileID: 6126188424833946103, guid: 44fa04625a01ec14dab8ab65149fa8dc, type: 3}
   TextPos: {fileID: 2041677256673050263}
 --- !u!95 &5428272808504103069
 Animator:
@@ -233,6 +233,7 @@ RectTransform:
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2041677256673050263}
   - {fileID: 6514522329852251921}
   m_Father: {fileID: 1934225836014336974}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -259,7 +260,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -435,11 +436,11 @@ Transform:
   m_GameObject: {fileID: 8207289589032027938}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.927, y: 0.602, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -73.799995, y: 205.8, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1934225836014336974}
+  m_Father: {fileID: 7415201751231137318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8283858916434964229
 GameObject:

@@ -2,25 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DamageText : MonoBehaviour
 {
-     Text Damagetext;
+    TMP_Text Damagetext;
     public int Endinfo;
-    public int Damageinfo;
+    public float Damageinfo;
     public float destroyTime = 0.7f;
     private void Start()
     {
-        Damagetext = GetComponent<Text>();
-        Damagetext.text = Damageinfo.ToString();
-        Invoke("DestroyText", destroyTime);
+        DText();
     }
     public void Update()
     {
     
     }
-  private void DestroyText()
+    private void DText()
     {
-        Destroy(Damagetext);
+        Damagetext = GetComponent<TMP_Text>();
+        Damagetext.text = Damageinfo.ToString();
+        DestroyText();
+    }
+    private void DestroyText()
+    {
+       Destroy(Damagetext, destroyTime);
     }
 }

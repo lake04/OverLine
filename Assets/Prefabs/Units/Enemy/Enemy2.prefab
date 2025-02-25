@@ -176,17 +176,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03648641a5a0dd4ca3b38866f55b102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  currentHp: 0
-  minSpeed: 2
-  maxSpeed: 5
+  damage: 2
   defense: 2
-  currentDefense: 0
+  maxHp: 12
+  currentHp: 0
+  shield: 0
+  currentShield: 0
   skills:
-  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
+  - {fileID: 7295449531322432734, guid: 9dcbc92d490dc5e46b5bb08d0901d627, type: 3}
   hpSlider: {fileID: 2267919370598946417}
   animator: {fileID: 0}
   SpawnDamageText: {fileID: 4612323860609808850, guid: c8c5084113de70b4caaf24b26bf297f6, type: 3}
+  hitEffect: {fileID: 6126188424833946103, guid: 44fa04625a01ec14dab8ab65149fa8dc, type: 3}
   TextPos: {fileID: 1542038857291213046}
 --- !u!61 &2872614156181293232
 BoxCollider2D:
@@ -231,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.28, y: 1.8}
+  m_Size: {x: 2.28, y: 3}
   m_EdgeRadius: 0
 --- !u!1 &3733948404135656859
 GameObject:
