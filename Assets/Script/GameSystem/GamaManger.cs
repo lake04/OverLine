@@ -29,6 +29,7 @@ public class GamaManger : MonoBehaviour
     {
         Slider(corrosionPoint,assimilatePoint);
         Text();
+        
     }
     private void OnApplicationQuit()
     {
