@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : Unit
 {
+
     void Start()
     {
         
@@ -13,5 +14,4 @@ public class Player : Unit
     {
         HpSlider();
     }
-   
 }

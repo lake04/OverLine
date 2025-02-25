@@ -15,6 +15,7 @@ public class Skill : MonoBehaviour
     public int corrosionPoint;
     public int assimilatePoint;
     public int resourceCount;
+    public int isSpIndex;
 
     public resistances resistances;
 
@@ -42,6 +43,7 @@ public class Skill : MonoBehaviour
         gamaManger.corrosionPoint += corrosionPoint;
         _player.defense += defense;
         _enemy.TakeDamage(power);
+        _player.UseAnimation(this.skillName);
     }
 
     public void EnemyUseSkil(Player _player, Enemy _enemy)

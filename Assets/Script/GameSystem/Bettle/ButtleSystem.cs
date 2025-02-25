@@ -93,6 +93,8 @@ public class ButtleSystem : MonoBehaviour
         if (state != BattleState.ENEMYTURN) state = BattleState.PLAYTURN;
         if (state == BattleState.PLAYTURN)
         {
+            skillSlot = FindAnyObjectByType<SkillSlot>();
+
             Debug.Log("플레이어 턴");
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -102,7 +104,7 @@ public class ButtleSystem : MonoBehaviour
                 }
                 state = BattleState.ENEMYTURN;
                 selectEnemy = null;
-                skillSlot.RandomSkill();
+                skillSlot.EndTurn();
                 gamaManger.cost++;
             }
         }

@@ -13,10 +13,17 @@ public class Unit : MonoBehaviour
     public int currentDefense;
     public  List<Skill>  skills;
     public Slider hpSlider;
+    public Animator animator;
+    public GameObject SpawnDamageText;
+    public Transform TextPos;
 
     private void Awake()
     {
         this.currentHp = this.maxHp;
+    }
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -28,6 +35,8 @@ public class Unit : MonoBehaviour
         currentDefense = defense;
         this.currentHp= (currentHp+currentDefense)- damage;
         currentDefense = currentDefense - damage;
+        GameObject spawnText = Instantiate(SpawnDamageText, TextPos);
+        spawnText.GetComponent<DamageText>().Damageinfo = damage;
         if (this.currentHp <= 0)
         {
             Destroy(this.gameObject);
@@ -37,5 +46,10 @@ public class Unit : MonoBehaviour
     {
         hpSlider.value = currentHp;
         hpSlider.maxValue = maxHp;
+    }
+    public void UseAnimation(string name)
+    {
+        if(name != null) animator.SetTrigger(name);
+        else return;
     }
 }
