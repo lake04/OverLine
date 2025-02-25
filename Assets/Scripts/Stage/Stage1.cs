@@ -9,6 +9,6 @@ public class Stage1 : MonoBehaviour
     {
         //SceneManager.LoadScene("SampleScene");
         //VVV ui 테스트용 VVV
-        SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("Game");
     }
 }
