@@ -109,7 +109,6 @@ Transform:
   m_Children:
   - {fileID: 7229121894326923290}
   - {fileID: 7570341790729359313}
-  - {fileID: 1542038857291213046}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3013769894026839030
@@ -186,8 +185,6 @@ MonoBehaviour:
   - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
   hpSlider: {fileID: 2267919370598946417}
   animator: {fileID: 0}
-  SpawnDamageText: {fileID: 4612323860609808850, guid: c8c5084113de70b4caaf24b26bf297f6, type: 3}
-  TextPos: {fileID: 1542038857291213046}
 --- !u!61 &2872614156181293232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -389,37 +386,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &7323543444355093652
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1542038857291213046}
-  m_Layer: 0
-  m_Name: textpos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1542038857291213046
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7323543444355093652}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.744, y: 1.195, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7734691136589787818}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7972616872526814551
 GameObject:
   m_ObjectHideFlags: 0
