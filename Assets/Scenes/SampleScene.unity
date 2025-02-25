@@ -422,6 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325413679}
+  - component: {fileID: 325413680}
   m_Layer: 0
   m_Name: SkillSlot
   m_TagString: Untagged
@@ -446,6 +447,29 @@ Transform:
   - {fileID: 677797679}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &325413680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325413678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfc1dc8b93ee6c41a61e1ea0b8fd949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillList:
+  - {fileID: 7295449531322432734, guid: c5774a4a995b4d341b43bb1c9586e6ea, type: 3}
+  - {fileID: 3581579932547728111, guid: 805c4587e7d6da54b82e6eb788f954a4, type: 3}
+  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
+  transforms:
+  - {fileID: 1406191209}
+  - {fileID: 118893585}
+  - {fileID: 2658783}
+  - {fileID: 1682896188}
+  - {fileID: 2144692451}
+  max: 5
 --- !u!1 &337986912
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +541,7 @@ MonoBehaviour:
   enemyList: []
   state: 0
   gamaManger: {fileID: 337986913}
-  skillSlot: {fileID: 677797680}
+  skillSlot: {fileID: 0}
 --- !u!114 &337986915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +558,7 @@ MonoBehaviour:
   player: {fileID: 8651595209787976426, guid: af5046bdfa8c8e44993f32ea1aee6850, type: 3}
   enemy: []
   gamaManger: {fileID: 337986913}
+  skillSlot: {fileID: 325413680}
 --- !u!4 &337986916
 Transform:
   m_ObjectHideFlags: 0
@@ -1109,7 +1134,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677797679}
-  - component: {fileID: 677797680}
   m_Layer: 0
   m_Name: slot
   m_TagString: Untagged
@@ -1137,30 +1161,6 @@ Transform:
   - {fileID: 2144692451}
   m_Father: {fileID: 325413679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &677797680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677797678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcfc1dc8b93ee6c41a61e1ea0b8fd949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spacing: 1.5
-  skillList:
-  - {fileID: 7295449531322432734, guid: c5774a4a995b4d341b43bb1c9586e6ea, type: 3}
-  - {fileID: 3581579932547728111, guid: 805c4587e7d6da54b82e6eb788f954a4, type: 3}
-  - {fileID: 7295449531322432734, guid: 12eb95c12df509f46b596b4efa39fc20, type: 3}
-  transforms:
-  - {fileID: 1406191209}
-  - {fileID: 118893585}
-  - {fileID: 2658783}
-  - {fileID: 1682896188}
-  - {fileID: 2144692451}
-  max: 5
 --- !u!1 &784725288
 GameObject:
   m_ObjectHideFlags: 0

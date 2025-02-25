@@ -13,10 +13,15 @@ public class Unit : MonoBehaviour
     public int currentDefense;
     public  List<Skill>  skills;
     public Slider hpSlider;
+    public Animator animator;
 
     private void Awake()
     {
         this.currentHp = this.maxHp;
+    }
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -37,5 +42,10 @@ public class Unit : MonoBehaviour
     {
         hpSlider.value = currentHp;
         hpSlider.maxValue = maxHp;
+    }
+    public void UseAnimation(string name)
+    {
+        if(name != null) animator.SetTrigger(name);
+        else return;
     }
 }

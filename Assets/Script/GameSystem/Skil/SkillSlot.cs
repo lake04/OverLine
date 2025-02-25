@@ -1,34 +1,76 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillSlot : MonoBehaviour
 {
-    public float spacing = 5f;
+    private static System.Random random = new System.Random();
+
     public List<Skill> skillList;
-    public Transform[] transforms;
+    public Transform[] transforms; 
     [SerializeField]
     private int max = 5; 
-    private int count = 0;
+    private List<int> newTransforms;
+    private int count = 0; 
 
     void Start()
     {
-        for(int i = 0; i < max; i++)
+        newTransforms = new List<int>();
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            Debug.Log($"{i}");
+            newTransforms.Add(i); 
+        }
+        SpawnSkills();
+    }
+
+    public void SpawnSkills()
+    {
+        int count = 0;
+
+        while (count < max && newTransforms.Count > 0)
         {
             RandomSkill();
+            count++;
         }
-    }
-    public void Update()
-    {
-      
-       
     }
 
     public void RandomSkill()
     {
-       Debug.Log("스킬 추가");
-       if (count >= transforms.Length) count = 0;
-       int result = Random.Range(0, skillList.Count);
-       Skill spskill = Instantiate(skillList[result], transforms[count++]);
-    } 
+        if (newTransforms.Count == 0)
+        {
+            return;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, newTransforms.Count); 
+        int _pos= newTransforms[randomIndex];
+        newTransforms.RemoveAt(randomIndex);
+
+        int result = UnityEngine.Random.Range(0, skillList.Count);
+
+        Skill _spSkill = Instantiate(skillList[result], transforms[_pos]);
+        _spSkill.isSpIndex = _pos;
+    }
+
+    public void EndTurn()
+    {
+        Debug.Log("턴종료");
+        RandomSkill();
+    }
+
+    public void RemoveSkill(Skill _skill)
+    {
+        if (_skill != null && _skill.isSpIndex >= 0)
+        {
+            int _pos = _skill.isSpIndex;
+
+            if (!newTransforms.Contains(_pos))
+            {
+                newTransforms.Add(_pos);
+            }
+
+            Destroy(_skill.gameObject);
+        }
+    }
 }
