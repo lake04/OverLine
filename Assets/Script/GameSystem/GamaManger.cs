@@ -18,7 +18,8 @@ public class GamaManger : MonoBehaviour
     public int assimilatePoint;
     public Slider assimilateSlider;
     public int cost;
-
+    public Text costText;
+    
     void Start()
     {
       
@@ -28,6 +29,7 @@ public class GamaManger : MonoBehaviour
     {
         Slider(corrosionPoint,assimilatePoint);
         Text();
+        
     }
     private void OnApplicationQuit()
     {
@@ -71,6 +73,7 @@ public class GamaManger : MonoBehaviour
         normalText.text = normal.ToString();
         fatalText.text = fatal.ToString();
         ineffText.text = ineff.ToString();
+        costText.text = cost.ToString();
     }
     public void Reset()
     {

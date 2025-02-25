@@ -14,23 +14,20 @@ public class ButtleSystem : MonoBehaviour
     public Transform[] playerTransforms;
     public Transform[] enemyTransformss;
 
-    Player playerUnit;
-    Enemy enemyUnit;
+    public Player playerUnit;
+    public Enemy enemyUnit;
 
     Enemy selectEnemy;
     int index;
 
     public List<Enemy> enemyList;
 
-    [SerializeField]
-    private GameObject unitUiPrefab;
-    [SerializeField]
-
     public BattleState state;
 
     public GamaManger gamaManger;
     private Vector3 mousePosition;
     private Camera camera;
+    public SkillSlot skillSlot;
     #endregion
 
     int count = 0;
@@ -96,6 +93,8 @@ public class ButtleSystem : MonoBehaviour
         if (state != BattleState.ENEMYTURN) state = BattleState.PLAYTURN;
         if (state == BattleState.PLAYTURN)
         {
+            skillSlot = FindAnyObjectByType<SkillSlot>();
+
             Debug.Log("플레이어 턴");
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -105,6 +104,8 @@ public class ButtleSystem : MonoBehaviour
                 }
                 state = BattleState.ENEMYTURN;
                 selectEnemy = null;
+                skillSlot.EndTurn();
+                gamaManger.cost++;
             }
         }
     }
@@ -114,15 +115,21 @@ public class ButtleSystem : MonoBehaviour
         if(state == BattleState.ENEMYTURN)
         {
             Debug.Log("Enemy턴");
-            for (int i = enemyUnit.skills.Count - 1; i >= 0; i--)
+            for(int i = enemyList.Count -1;i>=0;i--)
             {
-                enemyUnit.skills[i].EnemyUseSkil(playerUnit, enemyUnit);
+                for (int j = enemyUnit.skills.Count - 1; j >= 0; j--)
+                {
+                    enemyList[i].skills[j].EnemyUseSkil(playerUnit, enemyList[i]);
+                }
+                if (playerUnit.currentDefense > 0) playerUnit.currentHp -= playerUnit.currentDefense;
+                if (enemyList[i].currentDefense > 0) enemyList[i].currentHp -= enemyList[i].currentDefense;
+                playerUnit.defense = 0;
+                playerUnit.currentDefense = 0;
+                enemyList[i].defense = 0;
+                enemyList[i].currentDefense = 0;
             }
             state = BattleState.PLAYTURN;
-            if(playerUnit.currentDefense>0) playerUnit.currentHp -= playerUnit.currentDefense;
-            if (enemyUnit.currentDefense > 0) enemyUnit.currentHp -= enemyUnit.currentDefense;
-            playerUnit.defense = 0; 
-            enemyUnit.defense =0;
         }
     }
+  
 }

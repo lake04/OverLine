@@ -1,22 +1,76 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillSlot : MonoBehaviour
 {
-    public float spacing = 5f; 
+    private static System.Random random = new System.Random();
+
+    public List<Skill> skillList;
+    public Transform[] transforms; 
+    [SerializeField]
+    private int max = 5; 
+    private List<int> newTransforms;
+    private int count = 0; 
 
     void Start()
     {
-        ArraySkill();
+        newTransforms = new List<int>();
+        for (int i = 0; i < transforms.Length; i++)
+        {
+            Debug.Log($"{i}");
+            newTransforms.Add(i); 
+        }
+        SpawnSkills();
     }
 
-    void ArraySkill()
+    public void SpawnSkills()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        int count = 0;
+
+        while (count < max && newTransforms.Count > 0)
         {
-            Transform child = transform.GetChild(i);
-            child.position = new Vector3(i * spacing, -3.5f, 0);
+            RandomSkill();
+            count++;
+        }
+    }
+
+    public void RandomSkill()
+    {
+        if (newTransforms.Count == 0)
+        {
+            return;
+        }
+
+        int randomIndex = UnityEngine.Random.Range(0, newTransforms.Count); 
+        int _pos= newTransforms[randomIndex];
+        newTransforms.RemoveAt(randomIndex);
+
+        int result = UnityEngine.Random.Range(0, skillList.Count);
+
+        Skill _spSkill = Instantiate(skillList[result], transforms[_pos]);
+        _spSkill.isSpIndex = _pos;
+    }
+
+    public void EndTurn()
+    {
+        Debug.Log("ÅÏÁ¾·á");
+        RandomSkill();
+    }
+
+    public void RemoveSkill(Skill _skill)
+    {
+        if (_skill != null && _skill.isSpIndex >= 0)
+        {
+            int _pos = _skill.isSpIndex;
+
+            if (!newTransforms.Contains(_pos))
+            {
+                newTransforms.Add(_pos);
+            }
+
+            Destroy(_skill.gameObject);
         }
     }
 }
