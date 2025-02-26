@@ -1,33 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DamageText : MonoBehaviour
 {
-     Text Damagetext;
-    public int Endinfo;
+    public TMP_Text Damagetext;
+    Color alpha;
     public int Damageinfo;
-    public float destroyTime = 0.7f;
+    public float moveSpeed;
+    public float alphaSpeed;
+    public float destroyTime;
+    public void Awake()
+    {
+        Damagetext = GetComponent<TMP_Text>();
+        alpha = Damagetext.color;
+    }
     private void Start()
     {
-        Damagetext = GetComponent<Text>();
-        Damagetext.text = Damageinfo.ToString();
-        Invoke("DestroyText", destroyTime);
+        DmgText();
     }
     public void Update()
     {
-      //적이 받는 데미지코드에서
-      //public GameObject Infodamage;
-      //public Transform Textpos;
-      //  GameObject Text = Instantiate(Infodamage);
-      //    Text.transform.position = Textpos.position;
-      //    Text.GetComponent<DamageText>().Damageinfo = 적이 받은 데미지
-      //적 코드에 TextPos 값을 게임 오브젝트 트렌스폼으로 바꾸기
-      //
+         transform.Translate(new Vector3(0, moveSpeed * Time.deltaTime, 0));
+        alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime * alphaSpeed);
+        Damagetext.color = alpha;
     }
   private void DestroyText()
+   {
+        Destroy(Damagetext, destroyTime);
+   }
+    public void DmgText()
     {
-        Destroy(Damagetext);
+        Damagetext = GetComponent<TMP_Text>();
+        Damagetext.text = Damageinfo.ToString();
+        Debug.Log("황주하 퍼리퍼리");
+        DestroyText();
     }
 }

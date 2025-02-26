@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
+    
     public int maxHp;
     public int currentHp;
     public int minSpeed;
@@ -14,6 +15,8 @@ public class Unit : MonoBehaviour
     public  List<Skill>  skills;
     public Slider hpSlider;
     public Animator animator;
+    public GameObject SpawnDamageText;
+    public Transform TextPos;
 
     private void Awake()
     {
@@ -33,6 +36,8 @@ public class Unit : MonoBehaviour
         currentDefense = defense;
         this.currentHp= (currentHp+currentDefense)- damage;
         currentDefense = currentDefense - damage;
+        GameObject Spawntext = Instantiate(SpawnDamageText, TextPos);
+        Spawntext.GetComponent<DamageText>().Damageinfo = damage;
         if (this.currentHp <= 0)
         {
             Destroy(this.gameObject);
