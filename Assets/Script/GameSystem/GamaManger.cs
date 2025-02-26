@@ -64,6 +64,8 @@ public class GamaManger : MonoBehaviour
             default: break;
         }
     }
+
+    #region UI
     public void Slider(int _corrosionPoint, int _assimilatePoint)
     {
         corrosionSlider.maxValue = 50;
@@ -72,7 +74,7 @@ public class GamaManger : MonoBehaviour
         assimilateSlider.maxValue = 50;
         assimilateSlider.value = _assimilatePoint;
     }
-
+  
     public void Text()
     {
         normalText.text = normal.ToString();
@@ -80,6 +82,7 @@ public class GamaManger : MonoBehaviour
         ineffText.text = ineff.ToString();
         costText.text = cost.ToString();
     }
+    #endregion
     public void Reset()
     {
         normal = 0;
@@ -93,6 +96,7 @@ public class GamaManger : MonoBehaviour
 
     public void AssimilatePointBuff()
     {
+        Debug.Log("AssimilatePointBuff");
         if (assimilatePoint >= 20 && assimilatePoint <= 39)
         {
             if (isbuffUp[3] == false)
@@ -122,11 +126,11 @@ public class GamaManger : MonoBehaviour
             }
             RemoveResistances(3);
         }
-
     }
 
     public void corrosionPointBuff()
     {
+        Debug.Log("corrosionPointBuff");
         if (corrosionPoint >= 20 && corrosionPoint <= 39)
         {
             if (isbuffUp[3] == false)
@@ -135,7 +139,6 @@ public class GamaManger : MonoBehaviour
                 sum2 += 1;
                 isbuffUp[3] = true;
             }
-            RemoveResistances(1);
         }
         if (corrosionPoint >= 40 && corrosionPoint <= 49)
         {
@@ -145,7 +148,6 @@ public class GamaManger : MonoBehaviour
                 sum2 += 2;
                 isbuffUp[4] = true;
             }
-            RemoveResistances(2);
         }
         if (corrosionSlider.value == 50)
         {
@@ -161,7 +163,6 @@ public class GamaManger : MonoBehaviour
     public void RemoveResistances(int num)
     {
         Debug.Log("자원 감소");
-
         normal -= num;
         fatal -= num;
         ineff -= num;

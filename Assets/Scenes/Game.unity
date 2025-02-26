@@ -460,9 +460,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillList:
+  - {fileID: 7295449531322432734, guid: 5ce8c0db49ae4ba43a0e711b27658654, type: 3}
   - {fileID: 7295449531322432734, guid: 2fe12b9763ced934db354770112eb059, type: 3}
   - {fileID: 3581579932547728111, guid: eabb971e478e70142af51593bc2ea310, type: 3}
-  - {fileID: 7295449531322432734, guid: 5ce8c0db49ae4ba43a0e711b27658654, type: 3}
   transforms:
   - {fileID: 1406191209}
   - {fileID: 118893585}
@@ -507,6 +507,9 @@ MonoBehaviour:
   fatalText: {fileID: 955155315}
   ineff: 0
   ineffText: {fileID: 365854837}
+  sum: 0
+  sum2: 0
+  isbuffUp: 
   corrosionPoint: 0
   corrosionSlider: {fileID: 89366389}
   assimilatePoint: 0

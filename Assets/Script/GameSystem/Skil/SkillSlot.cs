@@ -52,11 +52,7 @@ public class SkillSlot : MonoBehaviour
         _spSkill.isSpIndex = _pos;
     }
 
-    public void EndTurn()
-    {
-        Debug.Log("≈œ¡æ∑·");
-        RandomSkill();
-    }
+   
 
     public void RemoveSkill(Skill _skill)
     {

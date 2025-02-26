@@ -91,6 +91,7 @@ public class ButtleSystem : MonoBehaviour
     #region 턴 관련
     public void PlayerTrun()
     {
+        if (gamaManger.cost == 0) gamaManger.cost = 1;
         if (state != BattleState.ENEMYTURN) state = BattleState.PLAYTURN;
         if (state == BattleState.PLAYTURN)
         {
@@ -106,7 +107,6 @@ public class ButtleSystem : MonoBehaviour
                 state = BattleState.ENEMYTURN;
                 selectEnemy = null;
                 EndTurn();
-                gamaManger.cost++;
             }
         }
     }
@@ -128,14 +128,12 @@ public class ButtleSystem : MonoBehaviour
                     playerUnit.NoramlTakeDamage(enemyList[i].damage);
                     Debug.Log("기본 공격");
                 }
-
-                if (playerUnit.currentShield > 0) playerUnit.currentHp -= playerUnit.currentShield;
-                if (enemyList[i].currentShield > 0) enemyList[i].currentHp -= enemyList[i].currentShield;
-                playerUnit.defense = 0;
-                playerUnit.currentShield = 0;
-                enemyList[i].defense = 0;
-                enemyList[i].currentShield = 0;
+                if (playerUnit.currentShield > 0) playerUnit.currentShield = 0;
+                if (enemyList[i].currentShield > 0) enemyList[i].currentShield = 0;
+                playerUnit.defense = playerUnit.minDefense;
+                enemyList[i].defense = enemyList[i].minDefense;
             }
+            
             state = BattleState.PLAYTURN;
         }
     }
@@ -143,6 +141,8 @@ public class ButtleSystem : MonoBehaviour
     public void EndTurn()
     {
         Debug.Log("턴종료");
+        gamaManger.cost++;
+       
         skillSlot.RandomSkill();
         gamaManger.AssimilatePointBuff();
         gamaManger.corrosionPointBuff();

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: AttackDefens
-  power: 10
+  power: 4
   defense: 10
   cost: 2
   level: 1
@@ -156,7 +156,7 @@ MonoBehaviour:
   isSpIndex: 0
   resistances: 2
   originalScale: {x: 0, y: 0, z: 0}
-  gamaManger: {fileID: 7880666560972673673, guid: 27da283d5552c534e958320e358fb88c, type: 3}
+  gamaManger: {fileID: 0}
 --- !u!1 &4592007818484497783
 GameObject:
   m_ObjectHideFlags: 0
