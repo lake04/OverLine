@@ -1,12 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum BattleState { START, PLAYTURN, ENEMYTURN, WON, LOSE }
 
 public class ButtleSystem : MonoBehaviour
 {
+    private static ButtleSystem instance;
+    
+    public static ButtleSystem Instance
+    {
+        get
+        {
+            if(instance == null) instance = new ButtleSystem();
+            return instance;
+        }
+    }
     #region 기본 정보
     public GameObject[] playerPrefabs;
     public GameObject[] enemyPrefabs;
@@ -28,14 +39,35 @@ public class ButtleSystem : MonoBehaviour
     private Vector3 mousePosition;
     private Camera camera;
     public SkillSlot skillSlot;
+
+    public StageManager stageManager;
     #endregion
 
     int count = 0;
+    public int num;
+   
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        stageManager = FindAnyObjectByType<StageManager>();
+        stageManager.Init(num);
+    }
+
     void Start()
     {
         state = BattleState.START;
-        SetUpBattle();
         camera = Camera.main;
+        
+        SetUpBattle();
+
     }
 
     private void Update()
@@ -62,6 +94,7 @@ public class ButtleSystem : MonoBehaviour
             enemyList.Add(enemyUnit);
         }
     }
+
 
     #region 합
     public void PlayerAttack(Player _player, Enemy _enemy, int num)
